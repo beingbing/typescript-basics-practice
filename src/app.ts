@@ -1,9 +1,11 @@
-let pizzaSize: string = 'small';
+// function sumOrder(price: number, quantity: number) : number {
+//     return price * quantity;
+// }
 
-function selectSize(size: 'small' | 'medium' | 'large'): void {
-    pizzaSize = size;
-}
+let sumOrder: (price: number, quantity: number) => number;
 
-selectSize('medium');
+sumOrder = (x, y) => x * y;
 
-console.log(`Pizza size: ${pizzaSize}`);
+const sum = sumOrder(25, 2);
+
+console.log(`Total sum: ${sum}`);

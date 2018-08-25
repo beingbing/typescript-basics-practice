@@ -1,5 +1,5 @@
 abstract class Sizes {
-    constructor(public sizes: string[]) {}
+    constructor(protected sizes: string[]) {}
 
     set availableSizes(sizes: string[]) {
         this.sizes = sizes;
@@ -13,8 +13,12 @@ abstract class Sizes {
 class Pizza extends Sizes {
     toppings: string[] = [];
 
-    constructor(readonly name: string, public sizes: string[]) {
+    constructor(readonly name: string, sizes: string[]) {
         super(sizes);
+    }
+
+    updateSizes(sizes: string[]) {
+        this.sizes = sizes;
     }
 
     addTopping(topping: string) {
@@ -26,7 +30,8 @@ const pizza = new Pizza('Pepperoni', ['medium', 'large']);
 pizza.addTopping('pepperoni');
 
 console.log(pizza.availableSizes);
-console.log(pizza.name);
-console.log(pizza);
+
+pizza.updateSizes(['large']);
+console.log(pizza.availableSizes);
 
 // you cannot instantiate an abstract class

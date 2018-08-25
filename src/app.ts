@@ -1,9 +1,18 @@
-interface Pizza {name: string, sizes: string[]};
+interface Pizza {name: string, sizes: string[], getAvailableSizes(): string[]};
+
+// difference between type declaration and interface declaration for functions
+// type getAvailableSizes = () => string[];
 
 let pizza: Pizza;
 
-function createPizza(name: string, sizes: string[]): Pizza {
-    return {name, sizes};
+function createPizza(name: string, sizes: string[]) {
+    return {
+        name,
+        sizes,
+        getAvailableSizes() {
+            return this.sizes;
+        }
+    } as Pizza;
 }
 
 pizza = createPizza('Pepparoni', ['small', 'medium']);

@@ -1,5 +1,9 @@
-let implicitCoupon = 'pizza12';
-let explicitCoupon: string = 'pizza21';
+let selectedToppig: string = 'pepperoni';
 
-// ts infers type implicitly if we give value, else we should provide one
-// because if in confusion, it will provide the type "any"
+function selectTopping(topping: string): void {
+    selectedToppig = topping;
+}
+
+selectTopping('bacon');
+
+console.log(selectedToppig);

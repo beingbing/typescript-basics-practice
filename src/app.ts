@@ -1,8 +1,11 @@
-// its telling that a value might never occur
+let coupon = 'pizza25';
 
-function orderError(error: string): never {
-    throw new Error(error);
-    // never going to return something
+function removeCoupon(): void {
+    coupon = null;
 }
 
-orderError('something went wrong');
+console.log(coupon);
+
+removeCoupon();
+
+console.log(coupon);

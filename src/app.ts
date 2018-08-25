@@ -1,7 +1,5 @@
-let coupon: any;
+let implicitCoupon = 'pizza12';
+let explicitCoupon: string = 'pizza21';
 
-coupon = 25;
-coupon = 'pizza10';
-coupon = true;
-
-// use any as a last resort, otherwise avoid using any
+// ts infers type implicitly if we give value, else we should provide one
+// because if in confusion, it will provide the type "any"

@@ -1,10 +1,11 @@
 interface Sizes {
-    sizes: string[],
+    sizes: string[];
 }
 
 interface Pizza extends Sizes {
-    name: string,
-    getAvailableSizes(): string[]
+    name: string;
+    toppings?: number;
+    getAvailableSizes(): string[];
 };
 
 // difference between type declaration and interface declaration for functions
@@ -12,7 +13,7 @@ interface Pizza extends Sizes {
 
 let pizza: Pizza;
 
-function createPizza(name: string, sizes: string[]) {
+function createPizza(name: string, sizes: string[]) : Pizza {
     return {
         name,
         sizes,
@@ -24,5 +25,6 @@ function createPizza(name: string, sizes: string[]) {
 
 pizza = createPizza('Pepparoni', ['small', 'medium']);
 
+pizza.toppings = 1
 // interface is a kind of contract between variable and type | shape of the type
 // that we are concentually telling typescript as what the variable look like

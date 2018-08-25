@@ -1,34 +1,30 @@
-interface Sizes {
-    sizes: string[];
-}
+// a class is syntactical sugar for creating our own constructor functions
+// and prototypal inheritance
 
-interface Pizza extends Sizes {
+class Pizza {
     name: string;
-    toppings?: number;
-    getAvailableSizes(): string[];
-    [key: number]: string;
-    [key: string]: any;
-};
+    toppings: string[] = [];
 
-// difference between type declaration and interface declaration for functions
-// type getAvailableSizes = () => string[];
+    constructor(name: string) {
+        this.name = name;
+    }
 
-let pizza: Pizza;
-
-function createPizza(name: string, sizes: string[]) : Pizza {
-    return {
-        name,
-        sizes,
-        getAvailableSizes() {
-            return this.sizes;
-        }
-    } as Pizza;
+    addTopping(topping: string) {
+        this.toppings.push(topping);
+    }
 }
 
-pizza = createPizza('Pepparoni', ['small', 'medium']);
+// function Pizza(name: string) {
+//     this.name = name;
+//     this.toppings = [];
+// }
 
-pizza[1] = 'zxc';
+// Pizza.prototype.addTopping = function addTopping(topping: string) {
+//     this.toppings.push(topping);
+// };
 
-pizza.toppings = 1
-// interface is a kind of contract between variable and type | shape of the type
-// that we are concentually telling typescript as what the variable look like
+const pizza = new Pizza('Pepperoni');
+
+pizza.addTopping('pepperoni');
+
+console.log(pizza);

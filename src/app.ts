@@ -1,9 +1,8 @@
-let selectedToppig: string = 'pepperoni';
+// its telling that a value might never occur
 
-function selectTopping(topping: string): void {
-    selectedToppig = topping;
+function orderError(error: string): never {
+    throw new Error(error);
+    // never going to return something
 }
 
-selectTopping('bacon');
-
-console.log(selectedToppig);
+orderError('something went wrong');

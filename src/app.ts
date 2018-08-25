@@ -1,51 +1,17 @@
-interface SizesInterface {
-    availableSizes: string[];
-}
+// const date = +new Date();
+// console.log(date);
+// this is called instance method
 
-// only public properties of a class can be present in its interface, 
-// hence, 'sizes' can not be included in the interface
+// const date = Date.now();
+// console.log(date);
+// this is called static method
 
-abstract class Sizes implements SizesInterface {
-    constructor(protected sizes: string[]) {}
-
-    set availableSizes(sizes: string[]) {
-        this.sizes = sizes;
-    }
-
-    get availableSizes() {
-        return this.sizes;
+class Coupon {
+    static allowed = ['Pepperoni', 'Blazing Inferno'];
+    static create(percentage: number) {
+        return `PIZZA_RESTAURANT_${percentage}`;
     }
 }
 
-interface PizzaInterface extends SizesInterface {
-    readonly name: string;
-    toppings: string[];
-    updateSizes(sizes: string[]): void;
-    addTopping(topping: string): void;
-}
-
-class Pizza extends Sizes implements PizzaInterface {
-    toppings: string[] = [];
-
-    constructor(readonly name: string, sizes: string[]) {
-        super(sizes);
-    }
-
-    updateSizes(sizes: string[]) {
-        this.sizes = sizes;
-    }
-
-    addTopping(topping: string) {
-        this.toppings.push(topping);
-    }
-}
-
-const pizza = new Pizza('Pepperoni', ['medium', 'large']);
-pizza.addTopping('pepperoni');
-
-console.log(pizza.availableSizes);
-
-pizza.updateSizes(['large']);
-console.log(pizza.availableSizes);
-
-// you cannot instantiate an abstract class
+console.log(Coupon.allowed);
+console.log(Coupon.create(25));

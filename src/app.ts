@@ -1,4 +1,11 @@
-interface Pizza {name: string, sizes: string[], getAvailableSizes(): string[]};
+interface Sizes {
+    sizes: string[],
+}
+
+interface Pizza extends Sizes {
+    name: string,
+    getAvailableSizes(): string[]
+};
 
 // difference between type declaration and interface declaration for functions
 // type getAvailableSizes = () => string[];

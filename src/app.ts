@@ -4,7 +4,7 @@
 class Pizza {
     toppings: string[] = [];
 
-    constructor(private name: string) {}
+    constructor(readonly name: string) {}
 
     addTopping(topping: string) {
         this.toppings.push(topping);
@@ -23,5 +23,8 @@ class Pizza {
 const pizza = new Pizza('Pepperoni');
 
 pizza.addTopping('pepperoni');
-
+console.log(pizza.name);
 console.log(pizza);
+
+// readonly properties can only be initialized at the declaration, they can't be
+// changed after that.

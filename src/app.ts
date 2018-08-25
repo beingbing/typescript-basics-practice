@@ -6,6 +6,8 @@ interface Pizza extends Sizes {
     name: string;
     toppings?: number;
     getAvailableSizes(): string[];
+    [key: number]: string;
+    [key: string]: any;
 };
 
 // difference between type declaration and interface declaration for functions
@@ -24,6 +26,8 @@ function createPizza(name: string, sizes: string[]) : Pizza {
 }
 
 pizza = createPizza('Pepparoni', ['small', 'medium']);
+
+pizza[1] = 'zxc';
 
 pizza.toppings = 1
 // interface is a kind of contract between variable and type | shape of the type
